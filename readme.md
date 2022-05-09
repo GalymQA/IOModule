@@ -3,7 +3,6 @@
 Реализовать программу которая будет получать в качестве аргумента командной строки путь к директории, например "D:/movies". Записать в текстовый файл структуру папок и файлов в виде, похожем на выполнение программы tree /F. Пример:
 
 > Amon Amarth
-
 >> 2004 - Fate Of Norns
 >>> 01 - An Ancient Sign Of Coming Storm.mp3 \
 >>> 02 - Where Death Seems To Dwell.mp3 \
@@ -13,7 +12,6 @@
 >>> 06 - The Beheading Of A King.mp3 \
 >>> 07 - Arson.mp3 \
 >>> 08 - Once Sealed In Blood.mp3 \
-
 >> 2016 - Jomsviking \
 >>> 01 First Kill.mp3 \
 >>> 02 Wanderer.mp3 \
@@ -28,7 +26,6 @@
 >>> 11 Back On Northern Shores.mp3 \
 >>> 12 Death In Fire 2016.mp3 \
 >>> 13 Death In Fire (Live).mp3 \
-
 >> 2019 - Berserker \
 >>> 01 Fafner's Gold.mp3 \
 >>> 02 Crack the Sky.mp3 \
