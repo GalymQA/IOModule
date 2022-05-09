@@ -12,9 +12,9 @@
 >>> 05 - Valkyries Ride.mp3 \
 >>> 06 - The Beheading Of A King.mp3 \
 >>> 07 - Arson.mp3 \
->>> 08 - Once Sealed In Blood.mp3 \
+>>> 08 - Once Sealed In Blood.mp3
 
->> 2016 - Jomsviking \
+>> 2016 - Jomsviking
 >>> 01 First Kill.mp3 \
 >>> 02 Wanderer.mp3 \
 >>> 03 On A Sea Of Blood.mp3 \
@@ -29,7 +29,7 @@
 >>> 12 Death In Fire 2016.mp3 \
 >>> 13 Death In Fire (Live).mp3 \
 
->> 2019 - Berserker \
+>> 2019 - Berserker
 >>> 01 Fafner's Gold.mp3 \
 >>> 02 Crack the Sky.mp3 \
 >>> 03 Mjölner, Hammer of Thor.mp3 \
