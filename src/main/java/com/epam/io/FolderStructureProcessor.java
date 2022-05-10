@@ -20,7 +20,8 @@ public class FolderStructureProcessor {
             FileWriter reportFileWriter = new FileWriter(reportFileName);
             bufferedWriter = new BufferedWriter(reportFileWriter);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Application Error: It seems that the entered folder does not exist");
+            System.exit(1);
         }
     }
 
