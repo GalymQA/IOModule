@@ -9,9 +9,9 @@ import java.util.List;
 
 public class FolderStructureProcessor {
 
-    private static final String APPENDIX_FOR_FOLDERS = "|----- ";
-    private static final String APPENDIX_FOR_SUB_ELEMENT = "       ";
-    private static final String APPENDIX_FOR_NON_FOLDERS = "|      ";
+    private static final String PREFIX_FOR_FOLDERS = "|----- ";
+    private static final String PREFIX_FOR_SUB_ELEMENT = "       ";
+    private static final String PREFIX_FOR_NON_FOLDERS = "|      ";
 
     private BufferedWriter bufferedWriter;
 
@@ -53,7 +53,7 @@ public class FolderStructureProcessor {
             bufferedWriter.write(file.getName());
             bufferedWriter.newLine();
         } else {
-            bufferedWriter.write(getIndentStringForFolders(indent) + APPENDIX_FOR_FOLDERS + file.getName());
+            bufferedWriter.write(getIndentStringForFolders(indent) + PREFIX_FOR_FOLDERS + file.getName());
             bufferedWriter.newLine();
         }
     }
@@ -66,7 +66,7 @@ public class FolderStructureProcessor {
     private String getIndentStringForFolders(int indent) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < indent; i++) {
-            stringBuilder.append(APPENDIX_FOR_SUB_ELEMENT);
+            stringBuilder.append(PREFIX_FOR_SUB_ELEMENT);
         }
         return stringBuilder.toString();
     }
@@ -92,9 +92,9 @@ public class FolderStructureProcessor {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < indent; i++) {
             if (i < indent - 1) {
-                stringBuilder.append(APPENDIX_FOR_SUB_ELEMENT);
+                stringBuilder.append(PREFIX_FOR_SUB_ELEMENT);
             } else {
-                stringBuilder.append(APPENDIX_FOR_NON_FOLDERS);
+                stringBuilder.append(PREFIX_FOR_NON_FOLDERS);
             }
         }
         return stringBuilder.toString();

@@ -19,21 +19,22 @@ public class ReportReader {
             fileReader = new FileReader(fileInput);
             bufferedReader = new BufferedReader(fileReader);
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("Application Error: It seems that the entered report file does not exist");
+            System.exit(1);
         }
     }
 
     public void printToConsoleDataOnFolderFileStructure() {
         String contentOfReport = convertContentOfReportToString();
-        System.out.println(contentOfReport);
+        System.out.println("The statistics on the file structure: ");
         int countOfFolders = getCountOfFolders(contentOfReport);
-        System.out.println("The number of folders : " + countOfFolders);
+        System.out.println("- The number of folders : " + countOfFolders);
         int countOfFiles = getCountOfFiles(contentOfReport);
-        System.out.println("The number of files : " + countOfFiles);
+        System.out.println("- The number of files : " + countOfFiles);
         double averageCountOfFiles = getAverageCountOfFilesInFolder(countOfFolders, countOfFiles);
-        System.out.println("The average number of files in folders : " + averageCountOfFiles);
+        System.out.println("- The average number of files in folders : " + averageCountOfFiles);
         double averageLengthOfFiles = getAverageLengthOfFiles(contentOfReport);
-        System.out.println("The average length of files : " + averageLengthOfFiles);
+        System.out.println("- The average length of files : " + averageLengthOfFiles);
     }
 
     public String convertContentOfReportToString() {
@@ -52,9 +53,9 @@ public class ReportReader {
         return stringBuilder.toString();
     }
 
-    public int getCountOfFolders(String contentOfReportAsString) {
+    public int getCountOfFolders(String contentOfReport) {
         int countOfFolders = 0;
-        String[] contentAsArray = contentOfReportAsString.split(REGEX_NEW_LINE);
+        String[] contentAsArray = contentOfReport.split(REGEX_NEW_LINE);
         for (String row : contentAsArray) {
             if (row.contains(REGEX_FOR_FOLDER)) {
                 countOfFolders++;
@@ -63,8 +64,8 @@ public class ReportReader {
         return countOfFolders;
     }
 
-    public int getCountOfFiles(String contentOfReportAsString) {
-        return getOnlyFileNames(contentOfReportAsString).size();
+    public int getCountOfFiles(String contentOfReport) {
+        return getOnlyFileNames(contentOfReport).size();
     }
 
     public double getAverageCountOfFilesInFolder(int countOfFolders, int countOfFiles) {
@@ -74,8 +75,8 @@ public class ReportReader {
         return ((countOfFiles * 1.0) / countOfFolders);
     }
 
-    public double getAverageLengthOfFiles(String stringBuffer) {
-        List<String> onlyFileNames = getOnlyFileNames(stringBuffer);
+    public double getAverageLengthOfFiles(String contentOfReport) {
+        List<String> onlyFileNames = getOnlyFileNames(contentOfReport);
         if (onlyFileNames.isEmpty()) {
             return 0;
         }
