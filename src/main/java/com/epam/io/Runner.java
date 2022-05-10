@@ -12,7 +12,8 @@ public class Runner {
         File fileInput = new File(inputString);
         verifyExistenceOfFile(fileInput);
         if (fileInput.isDirectory()) {
-            FolderStructureProcessor folderStructureProcessor = new FolderStructureProcessor(FILE_NAME_FOR_FILE_STRUCTURE);
+            FolderStructureProcessor folderStructureProcessor =
+                    new FolderStructureProcessor(FILE_NAME_FOR_FILE_STRUCTURE);
             folderStructureProcessor.writeFolderStructureAndCloseStream(fileInput);
         } else {
             ReportReader reportReader = new ReportReader(fileInput);
@@ -29,7 +30,8 @@ public class Runner {
     }
 
     private static String getInputFromConsole() {
-        System.out.println("Please enter a directory to process its file structure or a file to print statistics:");
+        System.out.println(
+                "Please enter a directory to process its file structure or enter a file to print statistics:");
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
