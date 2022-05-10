@@ -21,7 +21,7 @@ public class Runner {
         String inputString = "report.txt";
         File fileInput = new File(inputString);
         ReportReader reportReader = new ReportReader(fileInput);
-        reportReader.getStatisticsData();
+        reportReader.printToConsoleDataOnFolderFileStructure();
     }
 
     public static String getInputFromConsole() {

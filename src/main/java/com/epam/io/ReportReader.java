@@ -1,8 +1,15 @@
 package com.epam.io;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReportReader {
+
+    private static final String REGEX_NEW_LINE = "\n";
+    private static final String REGEX_FOR_FOLDER = "|----- ";
+    private static final String REGEX_FOR_FILE = "|      ";
+    private static final String REGEX_FOR_FILE_ENCODED = "\\|\\s\\s\\s\\s\\s\\s"; // Stands for "|      "
 
     private FileReader fileReader;
     private BufferedReader bufferedReader;
@@ -16,53 +23,48 @@ public class ReportReader {
         }
     }
 
-    public void getStatisticsData() {
-        StringBuffer contentOfReport = getContentOfReport();
-        System.out.println(contentOfReport.toString());
+    public void printToConsoleDataOnFolderFileStructure() {
+        String contentOfReport = convertContentOfReportToString();
+        System.out.println(contentOfReport);
         int countOfFolders = getCountOfFolders(contentOfReport);
         System.out.println("The number of folders : " + countOfFolders);
         int countOfFiles = getCountOfFiles(contentOfReport);
         System.out.println("The number of files : " + countOfFiles);
-        Double averageCountOfFiles = getAverageCountOfFilesInFolder(countOfFolders, countOfFiles);
+        double averageCountOfFiles = getAverageCountOfFilesInFolder(countOfFolders, countOfFiles);
         System.out.println("The average number of files in folders : " + averageCountOfFiles);
+        double averageLengthOfFiles = getAverageLengthOfFiles(contentOfReport);
+        System.out.println("The average length of files : " + averageLengthOfFiles);
     }
 
-    public StringBuffer getContentOfReport() {
-        StringBuffer stringBuffer = new StringBuffer();
+    public String convertContentOfReportToString() {
+        StringBuilder stringBuilder = new StringBuilder();
         String line;
         try {
             while ((line = bufferedReader.readLine()) != null) {
-                stringBuffer.append(line);
-                stringBuffer.append("\n");
+                stringBuilder.append(line);
+                stringBuilder.append(REGEX_NEW_LINE);
             }
             bufferedReader.close();
             fileReader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return stringBuffer;
+        return stringBuilder.toString();
     }
 
-    public int getCountOfFolders(StringBuffer stringBuffer) {
+    public int getCountOfFolders(String contentOfReportAsString) {
         int countOfFolders = 0;
-        String[] contentAsArray = stringBuffer.toString().split("\n");
-        for (String str : contentAsArray) {
-            if (str.contains("|----- ")) {
+        String[] contentAsArray = contentOfReportAsString.split(REGEX_NEW_LINE);
+        for (String row : contentAsArray) {
+            if (row.contains(REGEX_FOR_FOLDER)) {
                 countOfFolders++;
             }
         }
         return countOfFolders;
     }
 
-    public int getCountOfFiles(StringBuffer stringBuffer) {
-        int countOfFiles = 0;
-        String[] contentAsArray = stringBuffer.toString().split("\n");
-        for (String str : contentAsArray) {
-            if (str.contains("|      ")) {
-                countOfFiles++;
-            }
-        }
-        return countOfFiles;
+    public int getCountOfFiles(String contentOfReportAsString) {
+        return getOnlyFileNames(contentOfReportAsString).size();
     }
 
     public double getAverageCountOfFilesInFolder(int countOfFolders, int countOfFiles) {
@@ -71,4 +73,33 @@ public class ReportReader {
         }
         return ((countOfFiles * 1.0) / countOfFolders);
     }
+
+    public double getAverageLengthOfFiles(String stringBuffer) {
+        List<String> onlyFileNames = getOnlyFileNames(stringBuffer);
+        if (onlyFileNames.isEmpty()) {
+            return 0;
+        }
+        int sum = 0;
+        for (String fileName : onlyFileNames) {
+            sum += fileName.length();
+        }
+        return ((sum * 1.0) / onlyFileNames.size());
+    }
+
+    public List<String> getOnlyFileNames(String contentOfReport) {
+        String[] contentAsArray = contentOfReport.split(REGEX_NEW_LINE);
+        List<String> onlyFileNames = new ArrayList<>();
+        for (String element : contentAsArray) {
+            if (element.contains(REGEX_FOR_FILE)) {
+                String onlyFileName = splitStringByRegexAndGetFirstPart(element);
+                onlyFileNames.add(onlyFileName);
+            }
+        }
+        return onlyFileNames;
+    }
+
+    public String splitStringByRegexAndGetFirstPart(String string) {
+        return string.split(REGEX_FOR_FILE_ENCODED)[1];
+    }
+
 }

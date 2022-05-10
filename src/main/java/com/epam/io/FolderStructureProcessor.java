@@ -59,7 +59,7 @@ public class FolderStructureProcessor {
     }
 
     private void writeFileNameToReport(File file, int indent) throws IOException {
-        bufferedWriter.write(getIndentStringForNonFolders(indent+1) + file.getName());
+        bufferedWriter.write(getIndentStringForNonFolders(indent + 1) + file.getName());
         bufferedWriter.newLine();
     }
 
