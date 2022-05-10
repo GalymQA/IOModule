@@ -1,39 +1,40 @@
-|----- Utilities
+Utilities
        |----- Штрафы
               |----- SecondFolder
-              |      Штраф966.pdf
-              |      Штраф955.pdf
-              |      Штраф977.pdf
-              |----- OneMoreFolder
-                     |----- ThirdFolder
                      |      Штраф966.pdf
                      |      Штраф955.pdf
                      |      Штраф977.pdf
-              |      Штраф077.pdf
-              |      Штраф066.pdf
-              |      Штраф055.pdf
-       |      Штраф1.pdf
-       |      Штраф3.pdf
-       |      Штраф2.pdf
+              |----- OneMoreFolder
+                     |----- ThirdFolder
+                            |      Штраф966.pdf
+                            |      Штраф955.pdf
+                            |      Штраф977.pdf
+                     |      Штраф077.pdf
+                     |      Штраф066.pdf
+                     |      Штраф055.pdf
+              |----- Empty
+              |      Штраф1.pdf
+              |      Штраф3.pdf
+              |      Штраф2.pdf
        |----- Kamal
-       |      20191201_110641.jpg
-       |      20191201_110724.jpg
-       |      20191201_110753.jpg
-       |      20191201_110736.jpg
-       |      20191201_110613.jpg
-       |      UtilitiesBarcelona.txt
-       |      20191201_110713.jpg
-       |      20191201_110606.jpg
-       |      20191201_110809.jpg
-       |      UtilitiesKamal.txt
-       |      20191201_110650.jpg
+              |      20191201_110641.jpg
+              |      20191201_110724.jpg
+              |      20191201_110753.jpg
+              |      20191201_110736.jpg
+              |      20191201_110613.jpg
+              |      UtilitiesBarcelona.txt
+              |      20191201_110713.jpg
+              |      20191201_110606.jpg
+              |      20191201_110809.jpg
+              |      UtilitiesKamal.txt
+              |      20191201_110650.jpg
        |----- Страховка
-       |      Screenshot from 2020-05-31 16-54-06.png
-|      Квартиры2.txt
-|      Scan1.pdf
-|      Квартиры3.txt
-|      dogovor_arendy_2.pdf
-|      Notification.pdf
-|      dogovor_arendy_2.odt
-|      dogovor_arendy.odt
-|      dogovor_arendy.pdf
+              |      Screenshot from 2020-05-31 16-54-06.png
+       |      Квартиры2.txt
+       |      Scan1.pdf
+       |      Квартиры3.txt
+       |      dogovor_arendy_2.pdf
+       |      Notification.pdf
+       |      dogovor_arendy_2.odt
+       |      dogovor_arendy.odt
+       |      dogovor_arendy.pdf
