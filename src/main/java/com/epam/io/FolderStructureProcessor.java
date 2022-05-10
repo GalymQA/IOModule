@@ -34,7 +34,7 @@ public class FolderStructureProcessor {
         }
     }
 
-    public void writeReportToFile(File file, int indent) throws IOException {
+    private void writeReportToFile(File file, int indent) throws IOException {
         if (file.isDirectory()) {
             writeFolderNameToReport(file, indent);
             File[] innerFiles = file.listFiles();
@@ -48,7 +48,7 @@ public class FolderStructureProcessor {
         }
     }
 
-    public void writeFolderNameToReport(File file, int indent) throws IOException {
+    private void writeFolderNameToReport(File file, int indent) throws IOException {
         if (indent == 0) {
             bufferedWriter.write(file.getName());
             bufferedWriter.newLine();
@@ -58,12 +58,12 @@ public class FolderStructureProcessor {
         }
     }
 
-    public void writeFileNameToReport(File file, int indent) throws IOException {
+    private void writeFileNameToReport(File file, int indent) throws IOException {
         bufferedWriter.write(getIndentStringForNonFolders(indent+1) + file.getName());
         bufferedWriter.newLine();
     }
 
-    public String getIndentStringForFolders(int indent) {
+    private String getIndentStringForFolders(int indent) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < indent; i++) {
             stringBuilder.append(APPENDIX_FOR_SUB_ELEMENT);
@@ -71,7 +71,7 @@ public class FolderStructureProcessor {
         return stringBuilder.toString();
     }
 
-    public List<File> getGroupedListOfFoldersAndFiles(File[] innerFiles) {
+    private List<File> getGroupedListOfFoldersAndFiles(File[] innerFiles) {
         List<File> folders = new ArrayList<>();
         List<File> nonFolders = new ArrayList<>();
         assert innerFiles != null;
@@ -88,7 +88,7 @@ public class FolderStructureProcessor {
         return groupedListOfFoldersAndFiles;
     }
 
-    public String getIndentStringForNonFolders(int indent) {
+    private String getIndentStringForNonFolders(int indent) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < indent; i++) {
             if (i < indent - 1) {

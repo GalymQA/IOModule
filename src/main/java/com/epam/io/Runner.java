@@ -8,16 +8,24 @@ public class Runner {
     private static final String REPORT_FILE_NAME = "report.txt";
 
     public static void main(String[] args) {
-        String inputString = getInputFromConsole();
+//        String inputString = getInputFromConsole();
+//        File fileInput = new File(inputString);
+//        if (fileInput.isDirectory()) {
+//            FolderStructureProcessor folderStructureProcessor = new FolderStructureProcessor(REPORT_FILE_NAME);
+//            folderStructureProcessor.writeFolderStructureAndCloseStream(fileInput);
+//        } else {
+//            ReportReader reportReader = new ReportReader(fileInput);
+//            reportReader.getStatisticsData();
+//            // close stream
+//        }
+        String inputString = "report.txt";
         File fileInput = new File(inputString);
-        if (fileInput.isDirectory()) {
-            FolderStructureProcessor folderStructureProcessor = new FolderStructureProcessor(REPORT_FILE_NAME);
-            folderStructureProcessor.writeFolderStructureAndCloseStream(fileInput);
-        }
+        ReportReader reportReader = new ReportReader(fileInput);
+        reportReader.getStatisticsData();
     }
 
     public static String getInputFromConsole() {
-        System.out.println("Please enter a directory or a file:");
+        System.out.println("Please enter a directory to process or a file to get statistics:");
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
