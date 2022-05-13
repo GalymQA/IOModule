@@ -14,8 +14,8 @@ public class ReportAnalyzer {
     private final FileReader fileReader;
     private final BufferedReader bufferedReader;
 
-    public ReportAnalyzer(FileInput fileInput) throws FileNotFoundException {
-        this.fileReader = new FileReader(fileInput.getFile());
+    public ReportAnalyzer(File file) throws FileNotFoundException {
+        this.fileReader = new FileReader(file);
         this.bufferedReader = new BufferedReader(fileReader);
     }
 

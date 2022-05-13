@@ -26,10 +26,10 @@ public class Runner {
         FileInput fileInput = new FileInput(argument);
         fileInput.verifyExistenceOfFileOrFolder();
         if (fileInput.isDirectory()) {
-            FolderAnalyzer folderAnalyzer = new FolderAnalyzer(fileInput, FILE_TO_WRITE);
+            FolderAnalyzer folderAnalyzer = new FolderAnalyzer(fileInput.getFile(), FILE_TO_WRITE);
             folderAnalyzer.writeFolderStructureToFileAndCloseStream();
         } else {
-            ReportAnalyzer reportAnalyzer = new ReportAnalyzer(fileInput);
+            ReportAnalyzer reportAnalyzer = new ReportAnalyzer(fileInput.getFile());
             reportAnalyzer.printToConsoleStatisticsOnReport();
         }
     }

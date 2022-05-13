@@ -13,12 +13,12 @@ public class FolderAnalyzer {
     private static final String PREFIX_FOR_SUB_ELEMENT = "       ";
     private static final String PREFIX_FOR_NON_FOLDERS = "|      ";
 
-    private final FileInput fileInput;
+    private final File file;
     private final String reportFileName;
     private final BufferedWriter bufferedWriter;
 
-    public FolderAnalyzer(FileInput fileInput, String reportFileName) throws IOException {
-        this.fileInput = fileInput;
+    public FolderAnalyzer(File file, String reportFileName) throws IOException {
+        this.file = file;
         this.reportFileName = reportFileName;
         this.bufferedWriter = new BufferedWriter(new FileWriter(reportFileName));
     }
@@ -26,7 +26,7 @@ public class FolderAnalyzer {
     public void writeFolderStructureToFileAndCloseStream() {
         int indent = 0;
         try {
-            writeReportToFile(fileInput.getFile(), indent);
+            writeReportToFile(file, indent);
             bufferedWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -99,8 +99,8 @@ public class FolderAnalyzer {
         return stringBuilder.toString();
     }
 
-    public FileInput getFileInput() {
-        return fileInput;
+    public File getFile() {
+        return file;
     }
 
     public String getReportFileName() {
