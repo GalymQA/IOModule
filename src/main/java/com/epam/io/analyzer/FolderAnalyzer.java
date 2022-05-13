@@ -107,8 +107,4 @@ public class FolderAnalyzer {
         return reportFileName;
     }
 
-    public BufferedWriter getBufferedWriter() {
-        return bufferedWriter;
-    }
-
 }

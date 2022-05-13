@@ -11,10 +11,12 @@ public class ReportAnalyzer {
     private static final String REGEX_FOR_FILE = "|      ";
     private static final String ENCODED_REGEX_FOR_FILE = "\\|\\s\\s\\s\\s\\s\\s"; // Stands for REGEX_FOR_FILE
 
+    private final File file;
     private final FileReader fileReader;
     private final BufferedReader bufferedReader;
 
     public ReportAnalyzer(File file) throws FileNotFoundException {
+        this.file = file;
         this.fileReader = new FileReader(file);
         this.bufferedReader = new BufferedReader(fileReader);
     }
@@ -98,12 +100,7 @@ public class ReportAnalyzer {
         return string.split(ENCODED_REGEX_FOR_FILE)[1];
     }
 
-    public FileReader getFileReader() {
-        return fileReader;
+    public File getFile() {
+        return file;
     }
-
-    public BufferedReader getBufferedReader() {
-        return bufferedReader;
-    }
-
 }
