@@ -7,28 +7,26 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FolderStructureProcessor {
+public class FolderAnalyzer {
 
     private static final String PREFIX_FOR_FOLDERS = "|----- ";
     private static final String PREFIX_FOR_SUB_ELEMENT = "       ";
     private static final String PREFIX_FOR_NON_FOLDERS = "|      ";
 
-    private BufferedWriter bufferedWriter;
+    private final FileInput fileInput;
+    private final String reportFileName;
+    private final BufferedWriter bufferedWriter;
 
-    public FolderStructureProcessor(String reportFileName) {
-        try {
-            FileWriter reportFileWriter = new FileWriter(reportFileName);
-            bufferedWriter = new BufferedWriter(reportFileWriter);
-        } catch (IOException e) {
-            System.out.println("Application Error: It seems that the entered folder does not exist");
-            System.exit(1);
-        }
+    public FolderAnalyzer(FileInput fileInput, String reportFileName) throws IOException {
+        this.fileInput = fileInput;
+        this.reportFileName = reportFileName;
+        this.bufferedWriter = new BufferedWriter(new FileWriter(reportFileName));
     }
 
-    public void writeFolderStructureAndCloseStream(File folder) {
+    public void writeFolderStructureToFileAndCloseStream() {
         int indent = 0;
         try {
-            writeReportToFile(folder, indent);
+            writeReportToFile(fileInput.getFile(), indent);
             bufferedWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -99,6 +97,18 @@ public class FolderStructureProcessor {
             }
         }
         return stringBuilder.toString();
+    }
+
+    public FileInput getFileInput() {
+        return fileInput;
+    }
+
+    public String getReportFileName() {
+        return reportFileName;
+    }
+
+    public BufferedWriter getBufferedWriter() {
+        return bufferedWriter;
     }
 
 }

@@ -4,24 +4,19 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReportReader {
+public class ReportAnalyzer {
 
     private static final String REGEX_NEW_LINE = "\n";
     private static final String REGEX_FOR_FOLDER = "|----- ";
     private static final String REGEX_FOR_FILE = "|      ";
-    private static final String REGEX_FOR_FILE_ENCODED = "\\|\\s\\s\\s\\s\\s\\s"; // Stands for "|      "
+    private static final String ENCODED_REGEX_FOR_FILE = "\\|\\s\\s\\s\\s\\s\\s"; // Stands for REGEX_FOR_FILE
 
-    private FileReader fileReader;
-    private BufferedReader bufferedReader;
+    private final FileReader fileReader;
+    private final BufferedReader bufferedReader;
 
-    public ReportReader(File fileInput) {
-        try {
-            fileReader = new FileReader(fileInput);
-            bufferedReader = new BufferedReader(fileReader);
-        } catch (FileNotFoundException e) {
-            System.out.println("Application Error: It seems that the entered report file does not exist");
-            System.exit(1);
-        }
+    public ReportAnalyzer(FileInput fileInput) throws FileNotFoundException {
+        this.fileReader = new FileReader(fileInput.getFile());
+        this.bufferedReader = new BufferedReader(fileReader);
     }
 
     public void printToConsoleDataOnFolderFileStructure() {
@@ -100,7 +95,15 @@ public class ReportReader {
     }
 
     public String splitStringByRegexAndGetFirstPart(String string) {
-        return string.split(REGEX_FOR_FILE_ENCODED)[1];
+        return string.split(ENCODED_REGEX_FOR_FILE)[1];
+    }
+
+    public FileReader getFileReader() {
+        return fileReader;
+    }
+
+    public BufferedReader getBufferedReader() {
+        return bufferedReader;
     }
 
 }

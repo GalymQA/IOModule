@@ -1,39 +1,24 @@
 package com.epam.io;
 
-import java.io.File;
-import java.util.Scanner;
+import java.io.IOException;
 
 public class Runner {
 
-    private static final String FILE_NAME_FOR_FILE_STRUCTURE = "report.txt";
+    private static final String FILE_TO_WRITE = "folder_structure_report.txt";
 
-    public static void main(String[] args) {
-        String inputString = getInputFromConsole();
-        File fileInput = new File(inputString);
-        verifyExistenceOfFile(fileInput);
+    public static void main(String[] args) throws IOException {
+        Arguments arguments = new Arguments(args);
+        arguments.verifyArguments();
+        String argument = arguments.getArgument();
+        FileInput fileInput = new FileInput(argument);
+        fileInput.verifyExistenceOfFileOrFolder();
         if (fileInput.isDirectory()) {
-            FolderStructureProcessor folderStructureProcessor =
-                    new FolderStructureProcessor(FILE_NAME_FOR_FILE_STRUCTURE);
-            folderStructureProcessor.writeFolderStructureAndCloseStream(fileInput);
+            FolderAnalyzer folderAnalyzer = new FolderAnalyzer(fileInput, FILE_TO_WRITE);
+            folderAnalyzer.writeFolderStructureToFileAndCloseStream();
         } else {
-            ReportReader reportReader = new ReportReader(fileInput);
-            reportReader.printToConsoleDataOnFolderFileStructure();
+            ReportAnalyzer reportAnalyzer = new ReportAnalyzer(fileInput);
+            reportAnalyzer.printToConsoleDataOnFolderFileStructure();
         }
-    }
-
-    private static void verifyExistenceOfFile(File fileInput) {
-        if (!fileInput.exists()) {
-            System.out.println("Application Error: It seems that the entered file does not exist");
-            System.out.println("Stopping the application");
-            System.exit(1);
-        }
-    }
-
-    private static String getInputFromConsole() {
-        System.out.println(
-                "Please enter a directory to process its file structure or enter a file to print statistics:");
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
     }
 
 }
