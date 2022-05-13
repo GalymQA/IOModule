@@ -1,4 +1,4 @@
-package com.epam.io;
+package com.epam.io.analyzer;
 
 import java.io.*;
 import java.util.ArrayList;
