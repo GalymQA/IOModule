@@ -19,17 +19,17 @@ public class ReportAnalyzer {
         this.bufferedReader = new BufferedReader(fileReader);
     }
 
-    public void printToConsoleDataOnFolderFileStructure() {
+    public void printToConsoleStatisticsOnReport() {
         String contentOfReport = convertContentOfReportToString();
         System.out.println("The statistics on the folder structure: ");
         int countOfFolders = getCountOfFolders(contentOfReport);
-        System.out.println("- The number of folders : " + countOfFolders);
+        System.out.println(" - The number of folders : " + countOfFolders);
         int countOfFiles = getCountOfFiles(contentOfReport);
-        System.out.println("- The number of files : " + countOfFiles);
+        System.out.println(" - The number of files : " + countOfFiles);
         double averageCountOfFiles = getAverageCountOfFilesInFolder(countOfFolders, countOfFiles);
-        System.out.println("- The average number of files in folders : " + String.format("%.2f", averageCountOfFiles));
+        System.out.println(" - The average number of files in folders : " + String.format("%.2f", averageCountOfFiles));
         double averageLengthOfFiles = getAverageLengthOfFiles(contentOfReport);
-        System.out.println("- The average length of files : " + String.format("%.2f", averageLengthOfFiles));
+        System.out.println(" - The average length of files : " + String.format("%.2f", averageLengthOfFiles));
     }
 
     public String convertContentOfReportToString() {

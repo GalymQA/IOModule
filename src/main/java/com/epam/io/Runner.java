@@ -30,7 +30,7 @@ public class Runner {
             folderAnalyzer.writeFolderStructureToFileAndCloseStream();
         } else {
             ReportAnalyzer reportAnalyzer = new ReportAnalyzer(fileInput);
-            reportAnalyzer.printToConsoleDataOnFolderFileStructure();
+            reportAnalyzer.printToConsoleStatisticsOnReport();
         }
     }
 
