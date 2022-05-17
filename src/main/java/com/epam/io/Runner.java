@@ -11,7 +11,7 @@ import java.io.IOException;
 public class Runner {
 
     private static final String FILE_TO_WRITE;
-    
+
     static {
         FILE_TO_WRITE = PropertyLoader.getProperty("FILE_TO_WRITE");
     }

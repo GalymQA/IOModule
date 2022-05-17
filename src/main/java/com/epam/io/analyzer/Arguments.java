@@ -10,12 +10,8 @@ public class Arguments {
 
     public void verifyArguments() {
         if (getLengthOfArguments() != 1) {
-            throw new IllegalArgumentException("Only one argument is accepted.");
+            throw new IllegalArgumentException("Exactly one argument is accepted.");
         }
-    }
-
-    private int getLengthOfArguments() {
-        return args.length;
     }
 
     public String getArgument() {
@@ -28,6 +24,10 @@ public class Arguments {
 
     public void setArgs(String[] args) {
         this.args = args;
+    }
+
+    private int getLengthOfArguments() {
+        return args.length;
     }
 
 }

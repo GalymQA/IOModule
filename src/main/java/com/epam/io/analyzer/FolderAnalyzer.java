@@ -33,6 +33,14 @@ public class FolderAnalyzer {
         }
     }
 
+    public File getFile() {
+        return file;
+    }
+
+    public String getReportFileName() {
+        return reportFileName;
+    }
+
     private void writeReportToFile(File file, int indent) throws IOException {
         if (file.isDirectory()) {
             writeFolderNameToReport(file, indent);
@@ -97,14 +105,6 @@ public class FolderAnalyzer {
             }
         }
         return stringBuilder.toString();
-    }
-
-    public File getFile() {
-        return file;
-    }
-
-    public String getReportFileName() {
-        return reportFileName;
     }
 
 }

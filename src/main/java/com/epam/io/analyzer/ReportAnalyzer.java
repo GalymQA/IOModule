@@ -103,4 +103,5 @@ public class ReportAnalyzer {
     public File getFile() {
         return file;
     }
+
 }
