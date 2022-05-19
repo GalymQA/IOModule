@@ -1,14 +1,14 @@
-package com.epam.optional1;
+package com.epam.optionaltaskone;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
-public class Runner {
+public class RunnerOne {
 
     private static final String FILE_NAME =
-            "/home/titan/Desktop/Epam/Solutions/IOSolutions/io-task/file_with_integers.txt";
+            "/home/titan/Desktop/Epam/Solutions/IOSolutions/io-task/outputs/task_one.txt";
     private static final int NUMBER_OF_INTEGERS_TO_WRITE = 100;
 
     public static void main(String[] args) {
