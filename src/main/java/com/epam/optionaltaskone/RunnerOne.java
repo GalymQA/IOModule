@@ -8,7 +8,7 @@ import java.util.*;
 public class RunnerOne {
 
     private static final String FILE_NAME =
-            "/home/titan/Desktop/Epam/Solutions/IOSolutions/io-task/outputs/task_one.txt";
+            "/home/titan/Desktop/Epam/Solutions/IOSolutions/io-task/outputs/TaskOne.txt";
     private static final int NUMBER_OF_INTEGERS_TO_WRITE = 100;
 
     public static void main(String[] args) {
@@ -17,7 +17,7 @@ public class RunnerOne {
         List<String> integersAsStrings = readIntegersFromFile(file);
         List<Integer> integers = convertStringsToIntegers(integersAsStrings);
         Collections.sort(integers);
-        writeSortedIntegersToFile(file, integers);
+        writeIntegersToFile(file, integers);
     }
 
     private static File createFile() {
@@ -66,7 +66,7 @@ public class RunnerOne {
         return integers;
     }
 
-    private static void writeSortedIntegersToFile(File file, List<Integer> integers) {
+    private static void writeIntegersToFile(File file, List<Integer> integers) {
         try {
             FileWriter fileWriter = new FileWriter(file);
             for (int integer : integers) {

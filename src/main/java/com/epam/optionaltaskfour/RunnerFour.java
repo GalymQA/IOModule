@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class RunnerFour {
 
     private static final String FILE_NAME =
-            "/home/titan/Desktop/Epam/Solutions/IOSolutions/io-task/outputs/task_four.txt";
+            "/home/titan/Desktop/Epam/Solutions/IOSolutions/io-task/outputs/TaskFour.java";
     private static final String REGEX_SPACE = "\s";
     private static final int LENGTH_OF_WORD_TO_REPLACE = 2;
 

@@ -9,9 +9,9 @@ import java.util.Scanner;
 public class RunnerThree {
 
     private static final String FILE_INPUT =
-            "/home/titan/Desktop/Epam/Solutions/IOSolutions/io-task/outputs/task_three.txt";
+            "/home/titan/Desktop/Epam/Solutions/IOSolutions/io-task/outputs/TaskThree.java";
     private static final String FILE_OUTPUT =
-            "/home/titan/Desktop/Epam/Solutions/IOSolutions/io-task/outputs/task_three_output.txt";
+            "/home/titan/Desktop/Epam/Solutions/IOSolutions/io-task/outputs/TaskThreeOutput.java";
 
     public static void main(String[] args) {
         File fileInput = new File(FILE_INPUT);
