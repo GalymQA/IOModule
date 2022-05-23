@@ -13,7 +13,8 @@ public class RunnerOne {
 
     public static void main(String[] args) {
         File file = createFile();
-        writeRandomIntegersToFile(file);
+        List<Integer> randomIntegers = generateRandomIntegers(file);
+        writeIntegersToFile(file, randomIntegers);
         List<String> integersAsStrings = readIntegersFromFile(file);
         List<Integer> integers = convertStringsToIntegers(integersAsStrings);
         Collections.sort(integers);
@@ -30,18 +31,13 @@ public class RunnerOne {
         return file;
     }
 
-    private static void writeRandomIntegersToFile(File file) {
-        try {
-            FileWriter fileWriter = new FileWriter(file);
-            Random rand = new Random();
-            for (int i = 0; i < NUMBER_OF_INTEGERS_TO_WRITE; i++) {
-                fileWriter.write(String.valueOf(rand.nextInt()));
-                fileWriter.write('\n');
-            }
-            fileWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+    private static List<Integer> generateRandomIntegers(File file) {
+        List<Integer> randomIntegers = new ArrayList<>();
+        Random rand = new Random();
+        for (int i = 0; i < NUMBER_OF_INTEGERS_TO_WRITE; i++) {
+            randomIntegers.add(rand.nextInt());
         }
+        return randomIntegers;
     }
 
     private static List<String> readIntegersFromFile(File file) {
